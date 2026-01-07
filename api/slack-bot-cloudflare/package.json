@@ -1,0 +1,21 @@
+{
+  "name": "@boilerplates/slack-bot-cloudflare",
+  "version": "0.1.0",
+  "description": "Slack Bot boilerplate on Cloudflare Workers with Hono and D1",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "db:init": "wrangler d1 execute DB --local --file=./schema.sql",
+    "db:init:remote": "wrangler d1 execute DB --remote --file=./schema.sql"
+  },
+  "dependencies": {
+    "hono": "^4.7.0",
+    "nanoid": "^5.1.6"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241230.0",
+    "typescript": "^5.7.0",
+    "wrangler": "^3.99.0"
+  }
+}
