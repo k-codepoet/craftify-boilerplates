@@ -1,12 +1,11 @@
-# React Router + Cloudflare Workers
+# React Router SSR
 
-SSR 풀스택 boilerplate. Cloudflare Workers에서 서버 사이드 렌더링을 지원합니다.
+SSR 풀스택 boilerplate. 서버 사이드 렌더링을 지원합니다.
 
 ## 기술 스택
 
 - React Router 7.10 (SSR)
 - Tailwind CSS v4
-- Cloudflare Workers
 - TypeScript
 - shadcn/ui 호환 테마 시스템
 
@@ -14,19 +13,16 @@ SSR 풀스택 boilerplate. Cloudflare Workers에서 서버 사이드 렌더링�
 
 ```bash
 # 1. 복제
-cp -r boilerplates/web/react-router-cloudflare apps/{프로젝트명}
+cp -r boilerplates/web/react-router-ssr apps/{프로젝트명}
 cd apps/{프로젝트명}
 
 # 2. package.json name 수정
-# "@boilerplates/react-router-cloudflare" → "@apps/{프로젝트명}"
+# "@boilerplates/react-router-ssr" → "@apps/{프로젝트명}"
 
-# 3. wrangler.toml name 수정
-# name = "my-app" → name = "{프로젝트명}"
-
-# 4. 의존성 설치
+# 3. 의존성 설치
 pnpm install
 
-# 5. 개발 서버 시작
+# 4. 개발 서버 시작
 pnpm dev
 ```
 
@@ -36,8 +32,7 @@ pnpm dev
 |--------|------|
 | `pnpm dev` | 개발 서버 (HMR) |
 | `pnpm build` | 프로덕션 빌드 |
-| `pnpm start` | Wrangler 로컬 서버 |
-| `pnpm deploy` | Cloudflare 배포 |
+| `pnpm preview` | 빌드 후 로컬 서버 실행 |
 | `pnpm typecheck` | 타입 체크 |
 
 ## 구조
@@ -50,9 +45,6 @@ pnpm dev
 │   ├── routes.ts         # 라우트 정의
 │   ├── routes/           # 페이지 컴포넌트
 │   └── lib/              # 유틸리티
-├── workers/
-│   └── app.ts            # Cloudflare Worker 엔트리
-├── wrangler.toml         # Cloudflare 설정
 └── vite.config.ts        # Vite 설정
 ```
 
@@ -61,16 +53,3 @@ pnpm dev
 ```bash
 npx shadcn@latest add button
 ```
-
-## 배포
-
-```bash
-# Cloudflare 계정 로그인 (최초 1회)
-npx wrangler login
-
-# 배포
-pnpm deploy
-```
-
-커스텀 도메인은 Cloudflare Dashboard에서 설정:
-Workers & Pages > {프로젝트} > Settings > Domains & Routes
