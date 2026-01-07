@@ -8,3 +8,11 @@ compatibility_flags = ["nodejs_compat"]
 [assets]
 directory = "./build/client"
 binding = "ASSETS"
+
+# 프로덕션 환경 (main 브랜치)
+[env.production]
+name = "my-app"
+
+# 프리뷰 환경 (PR)
+[env.preview]
+name = "my-app-preview"
