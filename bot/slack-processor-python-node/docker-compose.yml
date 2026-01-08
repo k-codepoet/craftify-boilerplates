@@ -1,0 +1,10 @@
+services:
+  slack-bot:
+    build: .
+    container_name: slack-bot-processor-python
+    restart: unless-stopped
+    env_file:
+      - .env
+    # Uncomment for development with live reload
+    # volumes:
+    #   - ./src:/app/src

@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.local
+*.log
+.mypy_cache/
+.ruff_cache/
+.git/
+.gitignore
+README.md
+SETUP.md
