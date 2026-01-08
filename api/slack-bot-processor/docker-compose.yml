@@ -1,0 +1,19 @@
+services:
+  slack-bot:
+    build: .
+    container_name: slack-bot-processor
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    # Uncomment to mount local files for development
+    # volumes:
+    #   - ./src:/app/src
+    #   - ./package.json:/app/package.json
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
