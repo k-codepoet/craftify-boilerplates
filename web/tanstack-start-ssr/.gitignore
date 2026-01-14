@@ -1,0 +1,5 @@
+.nitro/
+.tanstack/
+.output/
+.turbo/
+node_modules/
